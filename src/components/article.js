@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 
 class Article extends PureComponent {
   render() {
-    console.log('test')
     const { article, isOpen } = this.props
     return (
       <div>
@@ -15,7 +14,6 @@ class Article extends PureComponent {
     )
   }
 
-  setTitleRef = (titleRef) => console.log(titleRef)
 
   handleBtnClick = () => this.props.toggleOpen(this.props.article.id)
 }

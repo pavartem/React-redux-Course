@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { findDOMNode } from 'react-dom'
 import Select from 'react-select'
 import ArticleList from './components/article-list'
 import ArticleChart from './components/article-chart'
 import articles from './fixtures'
 import UserForm from './components/user-form'
+import Counter from './components/counter'
 
 class App extends Component {
   state = {
@@ -15,6 +15,7 @@ class App extends Component {
     return (
       <div>
         <UserForm/>
+        <Counter/>
         <Select options={this.options} value={this.state.openItem} onChange={this.handleSelect}/>
         <ArticleList articles={articles} ref={this.setArticleListRef}/>
         <ArticleChart articles={articles}/>
@@ -32,7 +33,6 @@ class App extends Component {
   handleSelect = openItem => this.setState({ openItem })
 
   setArticlesListRef = ref => {
-    console.log('---', ref, findDOMNode(ref))
     // setTimeout(() => {
     //   ref.setState({ openItemId: articles[0].id }) // Не можна так робити
     //
